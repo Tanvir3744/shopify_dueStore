@@ -1,0 +1,292 @@
+<style>
+    .section-container--{{ section.id }}{
+    margin-top: {{ section.settings.margin_top | append:'px' }};
+    margin-bottom: {{ section.settings.margin_bottom | append:'px' }};
+    padding-top: {{ section.settings.padding_top | append:'px' }};
+    padding-bottom: {{ section.settings.padding_bottom | append:'px' }};
+    background-color: {{ section.settings.bg-color }};
+    overflow: hidden;
+    }
+    @media screen and (max-width: 768px){
+    .section-container--{{ section.id }}{
+    margin-top: {{ section.settings.margin_top_mobile | append:'px' }};
+    margin-bottom: {{ section.settings.margin_bottom_mobile | append:'px'  }};
+    padding-top: {{ section.settings.padding_top_mobile | append:'px' }};
+    padding-bottom: {{ section.settings.padding_bottom_mobile | append:'px' }};
+    }
+    }
+    .section-container--{{ section.id }}{}
+
+    .section-container--{{ section.id }} .top-block{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-family: var(--font-heading-family)
+    ;}
+
+    .section-container--{{ section.id }} .top-block h3{
+        font-size:2.5rem;
+        font-weight:600;
+    }
+
+    .section-container--{{ section.id }} .--nav-icon svg {
+      width:16px;
+      height:16px;
+  }
+
+  .section-container--{{ section.id }} .slider__container{
+        position:relative;
+    }
+
+    .section-container--{{ section.id }} .next-{{section.id}}{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        background: #fff;
+        line-height: 1;
+        position: absolute;
+        border-radius: 50%;
+        z-index: 1;
+        right:0;
+        top: 50%;
+        align-items: center;
+        justify-content: center;
+        transform: translatey(-50%)
+    }
+
+    .section-container--{{ section.id }} .prev-{{section.id}}{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        background: #fff;
+        line-height: 1;
+        position: absolute;
+        border-radius: 50%;
+        z-index: 1;
+        left:0;
+        top: 50%;
+        align-items: center;
+        justify-content: center;
+        transform: translatey(-50%)
+    }
+
+    .section-container--{{ section.id }} .swiper-wrapper{
+        height:auto;
+    }
+
+    .swiper-slide{
+        height:auto;
+        display:flex;
+    }
+
+    .section-container--{{ section.id }} .--product-content{
+     flex-grow:1;
+    }
+    .section-container--{{ section.id }} .swiper-button-disabled {
+    display:none;
+    }
+
+</style>
+<section class="section-container--{{ section.id }}">
+  <div class="section-wrapper--{{ section.id }} page-width">
+    <div class="top-block">
+      {% if section.settings.title != blank %}
+        <h3>{{ section.settings.title }}</h3>
+      {% endif %}
+    </div>
+
+    {% comment %} swiper slider starts {% endcomment %}
+    <div class="--swiper-slider slider__container">
+      <div class="swiper swiper-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% for product in section.settings.collection.products %}
+            <div class="swiper-slide">
+              {% render 'product-card-v1', product: product %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% comment %} slider buttons {% endcomment %}
+      <div class="prev-{{ section.id }} --nav-icon">
+        {% render 'all-icons', name: 'swiper-left' %}
+      </div>
+
+      <div class="next-{{ section.id }} --nav-icon">
+        {% render 'all-icons', name: 'swiper-right' %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} slider scripts {% endcomment %}
+<script>
+    (function () {
+      function swiperFunc(className){
+          if(className){
+              new Swiper(className, {
+                slidesPerView :3.5,
+                spaceBetween: 5,
+                breakpoints: {
+                    "@0.00": {
+                      slidesPerView: 1,
+                      spaceBetween: 10,
+                    },
+                    "@0.75": {
+                      slidesPerView: 2,
+                      spaceBetween: 20,
+                    },
+                    "@1.00": {
+                      slidesPerView: 3.5,
+                      spaceBetween: 15,
+                    },
+                },
+                navigation: {
+                      nextEl: '.next-{{ section.id }}',
+                      prevEl: '.prev-{{ section.id }}'
+                  },
+
+              });
+          }
+      }
+
+      {% comment %} swiper dom {% endcomment %}
+       document.addEventListener('DOMContentLoaded', function(){
+          swiperFunc(".swiper-{{ section.id }}");
+       })
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Base Structure",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "color",
+      "id": "bg-color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top  (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom  (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Support",
+      "type": "support",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Best Seller"
+    }
+  ]
+}
+{% endschema %}

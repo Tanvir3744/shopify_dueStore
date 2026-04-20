@@ -1,0 +1,58 @@
+<div class="--card-container">
+  <div class="--product-image">
+    {% if product.featured_image != blank %}
+     <a href="{{ product.url }}">  {{ product.featured_image | image_url: width: product.featured_image.width | image_tag }} </a>
+    {% endif %}
+    {% if product.url != blank %}
+      <a href="{{product.url}}" class="--link_overlay"></a>
+    {% endif %}
+  </div>
+
+  <div class="--product-content">
+    {% if product.title != blank %}
+      <h3>{{ product.title }}</h3>
+    {% else %}
+      {{ section.settings.product_title }}
+    {% endif %}
+    <p>{{ product.description | truncatewords: 15 }}</p>
+
+    <div class="--product-colors">
+      {% for option in product.options_with_values %}
+        {% if option.name == 'Color' %}
+          <div class="--color-swatches">
+            {% for value in option.values %}
+              <a
+                href="{{ value.product_url}}"
+                class="--color-swatch"
+                title="{{ value }}"
+                style="background-color: {{ value | downcase }};"
+              >
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="--card-price">
+      {% if product.compare_at_price > product.price %}
+        <span><del>{{ product.compare_at_price | money }}</del></span>
+        <span><strong>{{ product.price | money }}</strong></span>
+
+        {% comment %} calculation of savings percentage {% endcomment %}
+        {% assign savings = product.compare_at_price | minus: product.price %}
+        {% assign savings_percentage = savings | times: 100 | divided_by: product.compare_at_price %}
+        <span id="--savings">Save {{ savings_percentage }}% </span>
+
+      {% else %}
+        <span class="--new-price"><strong>{{ product.price | money }}</strong></span>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if section.settings.btn_txt != blank %}
+    <a href="{{ section.settings.btn_url }}" class="--add-to-cart-btn">{{ section.settings.btn_txt }}</a>
+  {% else %}
+    <a href="{{ section.settings.btn_url }}" class="--add-to-cart-btn">Add To Cart</a>
+  {% endif %}
+</div>

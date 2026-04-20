@@ -1,0 +1,130 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "custom_footer_jQAKKK": {
+      "type": "custom-footer",
+      "blocks": {
+        "menu_mcPH3J": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Support",
+            "footer_linked_list": "support-menu",
+            "menu_rte": ""
+          }
+        },
+        "menu_kTbPYR": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Connect",
+            "footer_linked_list": "connect",
+            "menu_rte": ""
+          }
+        },
+        "menu_P3hg3x": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "About",
+            "footer_linked_list": "footer",
+            "menu_rte": ""
+          }
+        },
+        "menu_MYH6jH": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "contact",
+            "footer_linked_list": "contact",
+            "menu_rte": "<p>Mon - Fri 9 AM to 5:30<em> </em>PM<em> </em>EST</p>"
+          }
+        },
+        "news_letter_JU6x3d": {
+          "type": "news_letter",
+          "settings": {
+            "news_letter_heading": "<h2>Join The Family</h2><p>Sign up for complimentary shipping and the latest news.</p>",
+            "btn_text": "Join The Family",
+            "btn_url": ""
+          }
+        },
+        "top_navigation_L8HY4y": {
+          "type": "top-navigation",
+          "settings": {
+            "top_nav_url": "",
+            "top_nav_title": "Customer Service",
+            "top_nav_sub_title": "Mon - Fri 9 AM to 5:30 PM EST."
+          }
+        },
+        "top_navigation_H7HKbU": {
+          "type": "top-navigation",
+          "settings": {
+            "top_nav_url": "",
+            "top_nav_title": "returnS & EXCHANGES",
+            "top_nav_sub_title": "30 day returns from the day of delivery."
+          }
+        },
+        "top_navigation_CpEQ9f": {
+          "type": "top-navigation",
+          "settings": {
+            "top_nav_url": "",
+            "top_nav_title": "Free Ground Shipping",
+            "top_nav_sub_title": "Get free shipping on orders $200 or more."
+          }
+        }
+      },
+      "block_order": [
+        "menu_mcPH3J",
+        "menu_kTbPYR",
+        "menu_P3hg3x",
+        "menu_MYH6jH",
+        "news_letter_JU6x3d",
+        "top_navigation_L8HY4y",
+        "top_navigation_H7HKbU",
+        "top_navigation_CpEQ9f"
+      ],
+      "name": "Custom Footer",
+      "settings": {
+        "title": "Free Ground Shipping",
+        "subtitle": "<p>Get free shipping on orders $200 or more.</p>",
+        "bg-color": "#f3f4f6",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": true,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "custom_footer_jQAKKK",
+    "footer"
+  ]
+}

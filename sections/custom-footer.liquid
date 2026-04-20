@@ -1,0 +1,604 @@
+<style>
+           .section-container--{{ section.id }}{
+           margin-top: {{ section.settings.margin_top | append:'px' }};
+           margin-bottom: {{ section.settings.margin_bottom | append:'px' }};
+           padding-top: {{ section.settings.padding_top | append:'px' }};
+           padding-bottom: {{ section.settings.padding_bottom | append:'px' }};
+           background-color: {{ section.settings.bg-color }};
+           overflow: hidden;
+           }
+           @media screen and (max-width: 768px){
+           .section-container--{{ section.id }}{
+           margin-top: {{ section.settings.margin_top_mobile | append:'px' }};
+           margin-bottom: {{ section.settings.margin_bottom_mobile | append:'px'  }};
+           padding-top: {{ section.settings.padding_top_mobile | append:'px' }};
+           padding-bottom: {{ section.settings.padding_bottom_mobile | append:'px' }};
+           }
+           }
+
+
+
+         .section-container--{{ section.id }} .__top_navigaion {
+           display: flex;
+           flex-direction: column;
+           gap: 16px;
+           border-right:1px solid rgba(31, 41, 55, 0.1);
+           padding:0px 10px;
+           }
+
+           .section-container--{{ section.id }} .__top_navigation_container {
+             display: grid;
+             grid-template-columns: repeat(3, 1fr);
+             border-bottom: 1px solid rgba(31, 41, 55, 0.1);
+             gap:40px;
+             padding: 48px 0px;
+
+             @media (max-width:768px){
+               display:flex;
+               flex-direction:column;
+               justify-content:space-between;
+               border-bottom:none;
+             }
+           }
+
+
+         .section-container--{{ section.id }} .__top_navigation_heading a{
+           text-decoration:none;
+           color:#333;
+           display:flex;
+           align-items:center;
+           justify-content:space-between;
+           width:100%;
+         }
+         .section-container--{{ section.id }} .__top_navigation_heading a span{
+             text-transform: uppercase;
+             line-height: 18px;
+             font-size: 16px;
+             font-family: var(--font-footer-heading);
+             font-weight: 700;
+         }
+
+         .section-container--{{ section.id }} .__top_navigation_subTitle p{
+           font-family: var(--font-footer-family);
+           margin:0;
+         }
+
+         {% comment %} news letter blocks styles {% endcomment %}
+
+         .section-container--{{ section.id }} .__news_letter_wrapper {
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+           align-items: center;
+
+           @media ( max-width:768px){
+             display: flex;
+             flex-direction: column;
+             justify-content: space-between;
+             align-items: center;
+           }
+         }
+
+         .section-container--{{ section.id }} .__news_letter_heading h2{
+           font-size:34px;
+           margin:0;
+           font-family:var(--font-footer-heading)
+         }
+
+         .section-container--{{ section.id }} .__news_letter_heading p{
+           font-family: var(--font-footer-family);
+           font-weight: 400;
+           font-size: 16px;
+           margin: 0;
+         }
+
+          .section-container--{{ section.id }} .__news_letter_container{
+           border-bottom: 1px solid rgba(31, 41, 55, 0.1);
+           padding: 48px 0px;
+         }
+
+
+         .section-container--{{ section.id }} .news_letter_btn a{
+           text-decoration: none;
+           border: 1px solid;
+           width: max-content;
+           color: #fff;
+           background: #1f2937;
+           padding: 15px 30px;
+           letter-spacing: 1px;
+           cursor: pointer;
+           transition: .4s ease-in-out;
+           font-family: var(--font-footer-heading);
+
+           @media(max-width:768px){
+             display:block;
+             width:100%;
+           }
+         }
+
+         .section-container--{{ section.id }} .news_letter_btn:hover a{
+           color:#333;
+           background:#fff;
+         }
+
+         @media (max-width:768px){
+           .section-container--{{ section.id }} .news_letter_btn {
+            width:100%;
+            padding:32px, 0px;
+           }
+         }
+
+         {% comment %} footer menu styles {% endcomment %}
+          .section-container--{{ section.id }} .__footer_menu {
+           display: grid;
+           grid-template-columns: repeat(4, 1fr);
+           justify-content: center;
+           gap: 48px;
+           border-bottom: 1px solid rgba(31, 41, 55, 0.1);
+           padding: 48px 0px;
+
+
+           @media (max-width:768px){
+             display:grid;
+             grid-template-columns: repeat(2, 1fr)
+           }
+       }
+
+       .section-container--{{ section.id }} .__menu_list li{
+          list-style:none;
+       }
+
+
+       .section-container--{{ section.id }} .__menu_list li a{
+         text-decoration:none;
+         color:#333;
+         font-size: 16px;
+         font-family:var(--font-footer-family);
+         font-weight: 400;
+         transition:.3s ease-in-out;
+       }
+
+       .section-container--{{ section.id }} .__menu_list li:hover a{
+        text-decoration:underline;
+       }
+
+       .section-container--{{ section.id }} .__menu_list {
+           border-right: 1px solid rgba(31, 41, 55, 0.1);
+           @media (max-width:768px){
+             border-right:none;
+           }
+       }
+
+       .section-container--{{ section.id }} .__top_navigaion:last-child{
+         border-right:none;
+       }
+
+       .section-container--{{ section.id }} .__menu_list h2{
+           font-size:28px;
+           font-weight:600;
+           line-height:120%;
+           text-transform:uppercase;
+       }
+
+       .section-container--{{section.id }} .__menu_list h2 {
+         font-size: 18px;
+         font-weight: 700;
+         line-height: 120%;
+         text-transform: uppercase;
+         font-family: var(--font-footer-family);
+     }
+
+       .section-container--{{section.id }} .__menu_list:last-child{
+        border-right:none;
+      }
+
+
+     {% comment %} footer bottom {% endcomment %}
+     .section-container--{{section.id }} .__footer-bottom-wrapper {
+       position: relative;
+       display:flex;
+       flex-direction:row;
+       justify-content:space-between;
+       align-items:center;
+
+       @media(max-width:768px){
+        display:flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+       }
+     }
+
+
+     .section-container--{{section.id }} .__footer-bottom-wrapper::before {
+         content: "";
+         position: absolute;
+         top: -24px;
+         left: 50%;
+         transform: translateX(-50%);
+         background: #f3f4f6;
+         height: 48px;
+         width: 48px;
+         background-image: url('https://cdn.shopify.com/s/files/1/0985/7518/8280/files/compass_1.svg?v=1772434965');
+         background-size: contain;
+         background-repeat: no-repeat;
+         background-position: center;
+         padding: 0px 40px;
+     }
+
+     .section-container--{{section.id }} .__privacy-btn{
+       font-family: var(--font-footer-family);
+       border:none;
+       font-weight:600;
+
+       @media (max-width:768px) {
+        display: flex;
+        gap: 300px;
+        /* column-gap: 100px; */
+        margin-top: 40px;
+        font-size: 16px;
+        background:none;
+        align-items: center;
+        }
+     }
+
+
+     .section-container--{{section.id }} .privacy_dropdown {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+
+       @media (max-width:768px){
+        display:flex;
+        flex-direction:column;
+       }
+   }
+
+   .section-container--{{section.id }} .__privacy-text-container {
+       margin: 0;
+       font-family:var(--font-footer-family)
+   }
+
+   .section-container--{{section.id }} .privacy_dropdown .privacy__list {
+     list-style: none;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     gap: 0px 10px;
+     font-family: var(--font-footer-family);
+     font-size: 14px;
+     border: 1px solid #333;
+     display:none;
+     border-radius:5px;
+   }
+
+   .section-container--{{section.id }} .privacy__list.active{
+     display:flex;
+
+     @media (max-width:768px){
+      display: flex;
+      justify-content:flex-start;
+      flex-direction:column;
+      gap:5px;
+      width:100%;
+      align-items:flex-start;
+     }
+   }
+
+   .section-container--{{section.id }} .privacy_dropdown ul li{
+     line-height: 25px;
+     transition: .4s ease-in-out;
+   }
+
+   .section-container--{{section.id }} .privacy_dropdown ul li:hover{
+     background:#1f2937;
+     color:#fff;
+   }
+
+
+  .section-container--{{section.id }} svg.dropdown-arrow {
+     transition: .3s ease-in-out;
+     transform: rotate(270deg);
+
+     @media(max-width:768px){
+      transform: rotate(0deg)
+     }
+   }
+
+   .section-container--{{section.id }} svg.active-arrow {
+    tansition:.3s ease-in-out;
+     transform: rotate(90deg);
+
+     @media (max-width:768px){
+      transform:rotate(180deg);
+     }
+   }
+</style>
+<section class="section-container--{{ section.id }}">
+  <div class="section-wrapper--{{ section.id }} page-width">
+    <div class="__top_navigation_container">
+      {% for block in section.blocks %}
+        {% if block.type == 'top-navigation' %}
+          <div class="__top_navigaion">
+            <div class="__top_navigation_heading">
+              <a href="{{ block.settings.top_nav_url }}">
+                <span>{{ block.settings.top_nav_title }}</span>
+                {% render 'all-icons', name: 'right-arrow' %}
+              </a>
+            </div>
+            <div class="__top_navigation_subTitle">
+              <p>{{ block.settings.top_nav_sub_title }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="__news_letter_container">
+      {% for block in section.blocks %}
+        {% if block.type == 'news_letter' %}
+          <div class="__news_letter_wrapper">
+            <div class="__news_letter_heading">
+              {{ block.settings.news_letter_heading }}
+            </div>
+            <div class="news_letter_btn">
+              <a href="{{block.settings.btn_url }}">{{ block.settings.btn_text }}</a>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="__footer_menu">
+      {% for block in section.blocks %}
+        {% if block.type == 'menu' %}
+          <div class="__menu_list">
+            <h2>{{ block.settings.menu_title }}</h2>
+            {% for link in block.settings.footer_linked_list.links %}
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+              <div>
+                {{ block.settings.menu_rte }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="__footer-bottom-wrapper">
+      <div class="__privacy-text-container">
+        <p>© B. DRADDY. All rights reserved 2013-2026</p>
+      </div>
+      <div class="privacy-container">
+        <div class="privacy_dropdown">
+          <button id="privacy__btn" class="__privacy-btn">
+            Privacy
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="7"
+              viewBox="0 0 14 7"
+              fill="none"
+              class="dropdown-arrow"
+              id="dropDown__icon"
+              data-acsb-hidden="true"
+              role="presentation"
+            >
+              <path d="M13.664 0.208008L13.4136 0.765452L6.99911 6.01049L6.99729 6.01197L6.99548 6.01049L0.581035 0.765452L0.330627 0.208008L6.99548 3.1651L6.997 3.1657H6.99759L6.99911 3.1651L13.664 0.208008Z" fill="black"></path>
+            </svg>
+          </button>
+          <ul id="__privacy_list" class="privacy__list">
+            <li>Accessibility</li>
+            <li>Terms and Condition</li>
+            <li>Privace Policy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const privacyBtn = document.getElementById('privacy__btn');
+  const showList = document.querySelector('#__privacy_list');
+  const dropDownArrow = document.getElementById('dropDown__icon');
+
+  if (privacyBtn && showList && dropDownArrow) {
+    privacyBtn.addEventListener('click', function () {
+      showList.classList.toggle('active');
+      dropDownArrow.classList.toggle('active-arrow');
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Base Structure",
+  "settings": [
+    {
+      "type": "text",
+      "id": "privacy_text",
+      "label": "Privacy Text"
+    },
+    {
+      "type": "link_list",
+      "id": "privacy_menu",
+      "label": "Privacy Menu"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "color",
+      "id": "bg-color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top  (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom  (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Top Navigation",
+      "type": "top-navigation",
+      "settings": [
+        {
+          "type": "url",
+          "id": "top_nav_url",
+          "label": "Top Navigaton URL"
+        },
+        {
+          "type": "text",
+          "id": "top_nav_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "top_nav_sub_title",
+          "label": "Sub Title"
+        }
+      ]
+    },
+    {
+      "name": "News Letter",
+      "type": "news_letter",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "news_letter_heading",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        }
+      ]
+    },
+    {
+      "name": "Footer Menu",
+      "type": "menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_title",
+          "label": "Menu Title"
+        },
+        {
+          "type": "link_list",
+          "id": "footer_linked_list",
+          "label": "Footer Menu"
+        },
+        {
+          "type": "richtext",
+          "id": "menu_rte",
+          "label": "Sub-Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer"
+    }
+  ]
+}
+{% endschema %}

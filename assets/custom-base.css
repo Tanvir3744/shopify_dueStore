@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'pernaso';
+  src: url('https://cdn.shopify.com/s/files/1/0985/7518/8280/files/gotham-book.woff2?v=1772523518') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Archive Atlantique';
+  src: url('https://cdn.shopify.com/s/files/1/0985/7518/8280/files/Archive_Atlantique.woff?v=1772352968') format('woff');
+  font-style: normal;
+  font-display: swap;
+   font-weight: 400;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.shopify.com/s/files/1/0985/7518/8280/files/urbanist-v15-latin-400.woff2?v=1772436766') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Courier New';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.shopify.com/s/files/1/0985/7518/8280/files/Courier_New_Regular.woff?v=1772438544') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Archivo-expanded';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.shopify.com/s/files/1/0985/7518/8280/files/Archivo-expanded.woff2?v=1772609753') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'parnaso-display-trial';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.shopify.com/s/files/1/0985/7518/8280/files/parnaso-display-trial.woff2?v=1772615497') format('woff2');
+}
+   .button{ box-sizing: border-box;
+    color: var(--White, #fff);
+    font-variant-numeric: lining-nums tabular-nums;
+    font-family: Gotham;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--Line-Height-UI-Controls-Control-Button-Large, 24px);
+    border-radius: 8px;
+    box-shadow: unset;
+    background: #f47c70;
+    transition: all .4s;
+    border: 1px solid transparent;
+    --border-offset:none;
+   }
+/* @font-face{
+
+  font-family:'CourierPrime',
+  src: url('{{"https://cdn.shopify.com/s/files/1/0985/7518/8280/files/CourierPrime-Regular.woff2?v=1772344900" | file_url}}') format('woff2');
+  font-display: swap;
+} */

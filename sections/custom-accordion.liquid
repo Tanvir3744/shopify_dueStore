@@ -1,0 +1,281 @@
+<style>
+        .section-container--{{ section.id }}{
+        margin-top: {{ section.settings.margin_top | append:'px' }};
+        margin-bottom: {{ section.settings.margin_bottom | append:'px' }};
+        padding-top: {{ section.settings.padding_top | append:'px' }};
+        padding-bottom: {{ section.settings.padding_bottom | append:'px' }};
+        background-color: {{ section.settings.bg-color }};
+        overflow: hidden;
+        }
+        @media screen and (max-width: 768px){
+        .section-container--{{ section.id }}{
+        margin-top: {{ section.settings.margin_top_mobile | append:'px' }};
+        margin-bottom: {{ section.settings.margin_bottom_mobile | append:'px'  }};
+        padding-top: {{ section.settings.padding_top_mobile | append:'px' }};
+        padding-bottom: {{ section.settings.padding_bottom_mobile | append:'px' }};
+        }
+        }
+
+
+      .section-container--{{ section.id }} .__accordion_title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom:40px;
+          cursor:pointer;
+      }
+
+      .section-container--{{ section.id }} .__accordion_title h3{
+          margin: 0;
+          font-family: var(--font-contact-heading);
+          font-size: 28px;
+          line-height: 24px;
+
+          @media(max-width:768px){
+            font-size:23px;
+            line-height:18px;
+          }
+      }
+      .section-container--{{ section.id }} .__accordion_content {
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          align-items: flex-start;
+          font-family: var(--font-contact-family);
+          font-weight: 400;
+          display:none;
+      }
+
+      .section-container--{{ section.id }} .content-active {
+       display:flex;
+       flex-direction:column;
+       margin-bottom: 30px;
+      }
+
+      .section-container--{{ section.id }} .__accordion_content p{
+          font-family: var(--font-contact-family);
+          font-size:12px;
+          font-weight: 400;
+          line-height:16px;
+          margin:0;
+      }
+
+      .section-container--{{ section.id }} .__accordion_content h3 {
+          font-family: var(--font-contact-family);
+          font-size: 18px;
+          line-height: 24px;
+          margin-bottom:0;
+      }
+
+  .section-container--{{ section.id }} .accordion_nav{
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .section-container--{{ section.id }} .__active_arrow{
+    transform: rotate(180deg);
+  }
+</style>
+<section class="section-container--{{ section.id }}">
+  <div class="section-wrapper--{{ section.id }} page-width">
+    {% for block in section.blocks %}
+      {% if block.type == 'accordion' %}
+        <div class="__accordion_container">
+          <div class="__accordion_title">
+            <h3>{{ block.settings.accordion_title }}</h3>
+            {% render 'all-icons', name: 'down-arrow' %}
+          </div>
+          <div class="__accordion_content {% if forloop.first %} content-active {% endif %}">
+            {{ block.settings.accordion_content }}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.__accordion_title');
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const content = this.nextElementSibling; // it triggers the next sibling element under the parent element
+      const arrow = this.querySelector('.accordion_nav');
+
+      const isOpen = content.classList.contains('content-active');
+
+
+      // close all the contents
+      document.querySelectorAll('.__accordion_content').forEach(function (item) {
+          item.classList.remove('content-active');
+      });
+
+      // remove the classlist from the arrow when it is true
+      document.querySelectorAll('.accordion_nav').forEach(function (arr) {
+        arr.classList.remove('__active_arrow');
+      });
+
+      if (!isOpen) {
+        content.classList.add('content-active'); // check the accordion is open or not ,,,, if close --> toggle the active class
+        arrow.classList.add("__active_arrow")
+      }
+
+   
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Base Structure",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "color",
+      "id": "bg-color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top  (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom  (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Support",
+      "type": "support",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "name": "Accordion",
+      "type": "accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Accordion Title"
+        },
+        {
+          "type": "richtext",
+          "id": "accordion_content",
+          "label": "Accordion Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Accordion"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %}
+  <div class="__accordion_container">
+          <div class="__accordion_title">
+              <h3></h3>
+          </div>
+          <div class="__accordion_content">
+
+          </div>
+    </div>
+{% endcomment %}

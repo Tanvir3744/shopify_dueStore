@@ -1,0 +1,174 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bdraddy_hero_section_6iJ4XP": {
+      "type": "bdraddy-hero-section",
+      "name": "Bdraddy Banner",
+      "settings": {
+        "banner_video": "shopify://files/videos/7653746-uhd_4096_2160_25fps.mp4",
+        "desktop_banner": "shopify://shop_images/large-grey-sofa-by-brick-wall_925x_9e3c93a4-ec9c-4bf9-b1c3-9be97fac3089.jpg",
+        "mobile_banner": "shopify://shop_images/young-hip-woman-at-carnival_925x_94052f99-b3ca-4b8b-9600-a4aac17d3005.jpg",
+        "title": "Defined By Simplicity",
+        "subtitle": "<p>Creating Traditional Sportswear </p>",
+        "btn_txt": "Explore More OutFits",
+        "btn_url": "",
+        "bg-color": "",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 30,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/large-grey-sofa-by-brick-wall_925x_9e3c93a4-ec9c-4bf9-b1c3-9be97fac3089.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "everyday_collection_qjrPJR": {
+      "type": "everyday-collection",
+      "name": "Everyday Collection",
+      "settings": {
+        "activewear_image": "shopify://shop_images/Image.png",
+        "first_title": "Everyday Collection",
+        "second_title": "",
+        "button_link": "#",
+        "btn_txt": "Andy Quilted Hoodie",
+        "section_list": "<h2>Activewear  for the Ambitious</h2><ul><li>Double-knit jersey with quilting at the front and back body</li><li>Drawing crossover hood with contrast drawcords and neck tape</li><li>Ribbed cuffs and hem</li><li>Kangaroo pocket</li></ul>",
+        "bg-color": "",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "new_arrival_jiEVd6": {
+      "type": "new_arrival",
+      "name": "New Arrival Product",
+      "settings": {
+        "title": "",
+        "product_title": "",
+        "btn_txt": "Add To Cart ",
+        "btn_url": "",
+        "product_url": "",
+        "collection": "shirts",
+        "subtitle": "",
+        "bg-color": "",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "our_best_seller_P3QfN8": {
+      "type": "our-best-seller",
+      "name": "Custom Best Seller",
+      "settings": {
+        "title": "More of Our Best Sellers",
+        "collection": "shirts",
+        "subtitle": "",
+        "bg-color": "",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    }
+  },
+  "order": [
+    "bdraddy_hero_section_6iJ4XP",
+    "image_banner",
+    "featured_collection",
+    "everyday_collection_qjrPJR",
+    "new_arrival_jiEVd6",
+    "our_best_seller_P3QfN8"
+  ]
+}
