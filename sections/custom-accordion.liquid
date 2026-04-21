@@ -95,7 +95,6 @@
 
 <script>
   const buttons = document.querySelectorAll('.__accordion_title');
-
   buttons.forEach(function (button) {
     button.addEventListener('click', function () {
       const content = this.nextElementSibling; // it triggers the next sibling element under the parent element
@@ -114,7 +113,7 @@
         arr.classList.remove('__active_arrow');
       });
 
-      if (!isOpen) {
+      if (!isOpen) { 
         content.classList.add('content-active'); // check the accordion is open or not ,,,, if close --> toggle the active class
         arrow.classList.add("__active_arrow")
       }

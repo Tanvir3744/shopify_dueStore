@@ -1,0 +1,370 @@
+<style>
+         .section-container--{{ section.id }}{
+         margin-top: {{ section.settings.margin_top | append:'px' }};
+         margin-bottom: {{ section.settings.margin_bottom | append:'px' }};
+         padding-top: {{ section.settings.padding_top | append:'px' }};
+         padding-bottom: {{ section.settings.padding_bottom | append:'px' }};
+         background-color: {{ section.settings.bg-color }};
+         overflow: hidden;
+         }
+         @media screen and (max-width: 768px){
+         .section-container--{{ section.id }}{
+         margin-top: {{ section.settings.margin_top_mobile | append:'px' }};
+         margin-bottom: {{ section.settings.margin_bottom_mobile | append:'px'  }};
+         padding-top: {{ section.settings.padding_top_mobile | append:'px' }};
+         padding-bottom: {{ section.settings.padding_bottom_mobile | append:'px' }};
+         }
+         }
+
+         .section-container--{{ section.id }}{}
+
+         .section-container--{{ section.id }} .__contact_wrapper{
+             display:grid;
+             grid-template-columns: repeat(2, 1fr);
+
+             @media(max-width:768px){
+              display:flex;
+              flex-direction:column;
+              gap:25px;
+            }
+         }
+        .section-container--{{ section.id }} form#contact_form {
+           background: #f3f4f6;
+           padding: 40px;
+        }
+
+        .section-container--{{ section.id }} ._customer_name, .__customer_email, .__customer_message {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .section-container--{{ section.id }} label {
+          font-family: var(--font-contact-family);
+        }
+
+        .section-container--{{ section.id }} input#__contact_name, #__contact_email, #__contact_message {
+        font-family: var(--font-contact-family);
+        }
+
+        .section-container--{{section.id }}  input#__contact_name, input#__contact_email, input#__contact_message {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #00000040;
+            background: #fff;
+            outline: none;
+            box-shadow:none;
+        }
+
+       .section-container--{{section.id }}  textarea#__contact_message {
+          min-height: 180px;
+          border: 1px solid #00000040;
+          outline:none;
+          box-shadow:none;
+          padding:12px;
+      }
+
+
+      .section-container--{{section.id}} input#__contact_submit{
+        border: none;
+        background: #000000;
+        color: white;
+        font-family: var(--font-contact-family);
+        padding: 12px 0px;
+        width: 100%;
+      }
+
+      {% comment %} contact right part style {% endcomment %}
+    .section-container--{{ section.id }} .__contact_content h2{
+      font-family:var(--font-contact-heading);
+      font-size:32px;
+      line-height:40px;
+      margin:0;
+
+      @media(max-width:768px){
+       font-size:25px;
+       line-height:32px;
+      }
+    }
+
+  .section-container--{{ section.id }} .__contact_content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .section-container--{{ section.id }} .sub-content {
+      display: flex;
+      justify-content: flex-start;
+      align-content: space-between;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0px 13px;
+  }
+
+  .section-container--{{ section.id }}  .right_sub_text h3{
+      margin: 0;
+      font-size: 20px;
+      line-height: 24px;
+      padding: 0;
+
+      @media(max-width:768px){
+      font-size:18px;
+      line-height:20px;
+      }
+  }
+
+  .section-container--{{ section.id }} .right_sub_text p{
+    margin:0;
+    padding:0;
+    font-family:var(--font-contact-family);
+    font-size:14px;
+  }
+
+  .section-container--{{ section.id }} .__contact_wrapper p {
+      font-family: var(--font-contact-family);
+      font-size:16px;
+      line-height:24px;
+
+      @media (max-width:768px){
+        font-size:14px;
+        line-height:20px;
+      }
+  }
+
+  .section-container--{{ section.id }} svg#phone {
+      width: 19px;
+      height: 19px;
+      position: relative;
+      top: 4px;
+  }
+
+  .section-container--{{section.id}} svg#Capa_1 {
+      width: 19px;
+      height: 19px;
+      margin-bottom: 15px;
+
+      @media(max-width:768px){
+        width:22px;
+        height:22px;
+        margin-bottom:10px;
+      }
+  }
+
+  .section-container--{{section.id}}  p.success-message {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    font-size:12px;
+  }
+</style>
+<section class="section-container--{{ section.id }}">
+  <div class="section-wrapper--{{ section.id }} page-width">
+    <div class="__contact_wrapper">
+      <div class="__contact_content">
+        {{ section.settings.contact_text }}
+        <div class="sub-content">
+          <div class="phone__icon">
+            {% render 'all-icons', name: 'phone' %}
+          </div>
+          <div class="right_sub_text">
+            {{ section.settings.contact_sub_text }}
+          </div>
+        </div>
+      </div>
+      <div class="__contact_form">
+        {% form 'contact' %}
+          {% if form.posted_successfully? %}
+            <p class="success-message">
+              {% render 'all-icons', name: 'success' %} You message has successfully delivered!!!
+            </p>
+          {% endif %}
+          {% if form.errors %}
+            {{ 'Your input data is not valid' }}
+          {% endif %}
+
+          <div class="_customer_name">
+            <label>Name</label>
+            <input
+              type="text"
+              name="contact[name]"
+              id="__contact_name"
+              placeholder="Type Name"
+              value="{% unless form.posted_successfully? %}{{ form.name }}{% endunless %}"
+            >
+          </div>
+
+          <div class="__customer_email">
+            <label>Email</label>
+            <input
+              type="email"
+              name="contact[email]"
+              id="__contact_email"
+              placeholder="Type Email Address"
+              value="{% unless form.posted_successfully? %}{{ form.email }}{% endunless %}"
+            >
+          </div>
+
+          <div class="__customer_message">
+            <label>Message</label>
+            <textarea
+              type="textarea"
+              name="contact[body]"
+              id="__contact_message"
+              placeholder="Type Your Message Here..."
+              value="{% unless form.posted_successfully? %}{{ form.body }}{% endunless %}"
+            ></textarea>
+          </div>
+
+          <div class="submit">
+            <input type="submit" value="Send" id="__contact_submit">
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Contact Bh",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "contact_text",
+      "label": "Contact Text"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_sub_text",
+      "label": "contact_sub_text"
+    },
+    {
+      "type": "text",
+      "id": "contact_message",
+      "label": "Contact Message"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "color",
+      "id": "bg-color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top  (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom  (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Support",
+      "type": "support",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Contact BH"
+    }
+  ]
+}
+{% endschema %}
